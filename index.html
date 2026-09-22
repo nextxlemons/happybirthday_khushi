@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Celebration!</title>
+    <title>Happy Birthday Sister Khushi! 🎂</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -12,14 +13,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Great+Vibes&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         body {
             font-family: 'Quicksand', sans-serif;
-            background: linear-gradient(135deg, #f8a5c2 0%, #f78fb3 50%, #f3a683 100%);
+            background: linear-gradient(135deg, #1f0836 0%, #3b1560 40%, #592383 75%, #2b1055 100%);
             min-height: 100vh;
             overflow-x: hidden;
             touch-action: manipulation;
+            color: #f1f0fa;
         }
 
         .font-handwriting {
@@ -30,35 +32,54 @@
             font-family: 'Fredoka', cursive;
         }
 
-        /* Glassmorphic Container */
         .glass-card {
-            background: rgba(255, 255, 255, 0.45);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 2px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 20px 40px rgba(247, 143, 179, 0.3);
+            background: rgba(43, 16, 85, 0.65);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 2px solid rgba(163, 147, 235, 0.3);
+            box-shadow: 0 25px 50px -12px rgba(15, 3, 32, 0.7);
         }
 
-        /* Cake Build Keyframe Animations */
         @keyframes dropIn {
-            0% { opacity: 0; transform: translateY(-120px) scale(0.8); }
-            70% { transform: translateY(10px) scale(1.05); }
-            100% { opacity: 1; transform: translateY(0) scale(1); }
+            0% {
+                opacity: 0;
+                transform: translateY(-120px) scale(0.8);
+            }
+
+            70% {
+                transform: translateY(10px) scale(1.05);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
 
         @keyframes flameGlow {
-            0%, 100% { transform: scale(1) rotate(-2deg); filter: drop-shadow(0 0 8px #fffa65); }
-            50% { transform: scale(1.15) rotate(3deg); filter: drop-shadow(0 0 15px #ffaf40); }
+
+            0%,
+            100% {
+                transform: scale(1) rotate(-2deg);
+                filter: drop-shadow(0 0 12px #ffe066);
+            }
+
+            50% {
+                transform: scale(1.25) rotate(3deg);
+                filter: drop-shadow(0 0 22px #ff922b);
+            }
         }
 
         @keyframes floatSlow {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-12px) rotate(3deg); }
-        }
 
-        @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 0 15px rgba(255,255,255,0.6); }
-            50% { box-shadow: 0 0 30px rgba(255,255,255,0.9); }
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-12px) rotate(3deg);
+            }
         }
 
         .animate-float {
@@ -83,37 +104,38 @@
             display: none !important;
         }
 
-        /* Smoke effect when candle blown */
         .smoke {
             position: absolute;
             width: 8px;
             height: 8px;
-            background: rgba(200, 200, 200, 0.8);
+            background: rgba(220, 214, 247, 0.8);
             border-radius: 50%;
             pointer-events: none;
             animation: smokeUp 2s forwards ease-out;
         }
 
         @keyframes smokeUp {
-            0% { opacity: 0.8; transform: translate(0, 0) scale(1); }
-            100% { opacity: 0; transform: translate(var(--dx), -80px) scale(3.5); }
-        }
+            0% {
+                opacity: 0.8;
+                transform: translate(0, 0) scale(1);
+            }
 
-        /* SVG Stickman Animations */
-        @keyframes stickmanWalk {
-            0% { transform: translateX(-150px); }
-            100% { transform: translateX(0); }
+            100% {
+                opacity: 0;
+                transform: translate(var(--dx), -80px) scale(3.5);
+            }
         }
 
         @keyframes waveArm {
-            0%, 100% { transform: rotate(0deg); }
-            50% { transform: rotate(-35deg); }
-        }
 
-        @keyframes popPopper {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.3) rotate(-15deg); }
-            100% { transform: scale(1); }
+            0%,
+            100% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(-35deg);
+            }
         }
 
         .stickman-arm-left {
@@ -121,20 +143,7 @@
             animation: waveArm 1.5s ease-in-out infinite;
         }
 
-        .stickman-container {
-            transition: all 0.5s ease;
-        }
-
-        canvas#confettiCanvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 50;
-        }
-
+        canvas#confettiCanvas,
         canvas#backgroundDecor {
             position: fixed;
             top: 0;
@@ -142,129 +151,119 @@
             width: 100vw;
             height: 100vh;
             pointer-events: none;
+        }
+
+        canvas#confettiCanvas {
+            z-index: 50;
+        }
+
+        canvas#backgroundDecor {
             z-index: 0;
         }
     </style>
 </head>
-<body class="flex flex-col items-center justify-center p-3 md:p-6 text-gray-800 min-h-screen select-none">
+
+<body class="flex flex-col items-center justify-center p-3 md:p-6 min-h-screen select-none">
 
     <!-- Background Decor Canvas -->
     <canvas id="backgroundDecor"></canvas>
-    
-    <!-- Celebration Overlay Canvas -->
+
+    <!-- Celebration Canvas -->
     <canvas id="confettiCanvas"></canvas>
 
-    <!-- Main Container -->
+    <!-- HTML5 Audio Element for Local alarm.mp3 -->
+    <audio id="localAudio" src="alarm.mp3" preload="auto"></audio>
+
     <main class="relative z-10 w-full max-w-2xl glass-card rounded-3xl p-5 md:p-8 my-auto text-center overflow-hidden transition-all duration-300">
-        
+
         <!-- Header Banner -->
-        <header class="mb-4">
-            <div class="inline-flex items-center gap-2 bg-white/60 px-4 py-1.5 rounded-full shadow-sm text-pink-600 font-semibold text-xs md:text-sm mb-2">
-                <i class="fa-solid fa-cake-candles text-pink-500 animate-bounce"></i>
-                <span>Special Celebration</span>
+        <header class="mb-3">
+            <div class="inline-flex items-center gap-2 bg-[#592383]/80 border border-[#a393eb]/40 px-4 py-1.5 rounded-full shadow-sm text-[#dcd6f7] font-semibold text-xs md:text-sm mb-2">
+                <i class="fa-solid fa-crown text-amber-400 animate-bounce"></i>
+                <span>Best Sister Ever</span>
+                <span>🫡</span>   
             </div>
-            
-            <h1 class="font-handwriting text-5xl sm:text-6xl md:text-7xl text-pink-600 drop-shadow-md my-1 transition-all" id="birthdayTitle">
-                Happy Birthday, <span id="displayName" class="underline decoration-wavy decoration-pink-300">Lovie</span>!
+
+            <h1 class="font-handwriting text-5xl sm:text-6xl md:text-7xl text-[#dcd6f7] drop-shadow-md my-1 transition-all">
+                Happy Birthday <span class="text-purple-200 underline decoration-wavy decoration-purple-400">Khushi</span> jii! 🎂 🎉
             </h1>
-            
-            <p class="text-gray-700 text-sm md:text-base font-medium mt-1" id="subMessage">
-                Press "Build Cake" or "Play Magic" to begin the surprise!
+
+            <p class="text-[#a393eb] text-sm md:text-base font-medium mt-1">
+                Wishing the chhoti si bacchi sister Khushi endless joy, love & happiness! ✨
             </p>
         </header>
 
-        <!-- Dynamic Stickman & Animated Cake Display Stage -->
-        <div class="relative w-full h-72 sm:h-80 my-4 flex items-center justify-center bg-white/40 rounded-2xl border border-white/60 shadow-inner overflow-hidden">
-            
-            <!-- Floating Wish Cloud / Speech Bubble -->
-            <div id="speechBubble" class="absolute top-3 left-1/2 -translate-x-1/2 bg-white px-4 py-2 rounded-2xl shadow-md border-2 border-pink-300 text-xs sm:text-sm font-bold text-pink-600 opacity-0 transition-all duration-500 transform -translate-y-2 z-20 flex items-center gap-2">
-                <span id="speechText">Happy Birthday! Let's celebrate! 🎉</span>
-                <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-8 border-l-transparent border-r-8 border-r-transparent border-t-8 border-t-white"></div>
+        <!-- Dynamic Stage for Stickman & Animated Cake -->
+        <div class="relative w-full h-72 sm:h-80 my-3 flex items-center justify-center bg-[#1f0836]/60 rounded-2xl border border-[#a393eb]/30 shadow-inner overflow-hidden">
+
+            <!-- Speech Bubble -->
+            <div id="speechBubble" class="absolute top-3 left-1/2 -translate-x-1/2 bg-[#592383] px-4 py-2 rounded-2xl shadow-lg border-2 border-[#a393eb] text-xs sm:text-sm font-bold text-[#dcd6f7] opacity-0 transition-all duration-500 transform -translate-y-2 z-20 flex items-center gap-2">
+                <span id="speechText">Happy Birthday Khushi! You're the best sister! 💜</span>
+                <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-8 border-l-transparent border-r-8 border-r-transparent border-t-8 border-t-[#592383]"></div>
             </div>
 
             <!-- SVG STICKMAN CHARACTER -->
             <div id="stickmanWrapper" class="absolute left-2 sm:left-6 bottom-4 w-28 sm:w-36 h-48 sm:h-56 z-10 transition-all duration-1000 transform translate-x-[-150px] opacity-0">
-                <svg viewBox="0 0 100 150" class="w-full h-full filter drop-shadow-sm">
-                    <!-- Balloon Strings -->
-                    <path d="M 75 40 Q 65 60 70 85" stroke="#ff7675" stroke-width="1.5" fill="none" id="balloonString" />
-                    <path d="M 85 35 Q 75 55 70 85" stroke="#74b9ff" stroke-width="1.5" fill="none" id="balloonString2" />
-                    
-                    <!-- Balloons -->
+                <svg viewBox="0 0 100 150" class="w-full h-full filter drop-shadow-md">
+                    <path d="M 75 40 Q 65 60 70 85" stroke="#a393eb" stroke-width="1.5" fill="none" />
+                    <path d="M 85 35 Q 75 55 70 85" stroke="#dcd6f7" stroke-width="1.5" fill="none" />
+
                     <g id="balloons" class="animate-float">
-                        <!-- Pink Balloon -->
-                        <ellipse cx="75" cy="25" rx="14" ry="18" fill="#ff7675" />
-                        <polygon points="75,43 72,47 78,47" fill="#e84393" />
+                        <ellipse cx="75" cy="25" rx="14" ry="18" fill="#8b5cf6" />
+                        <polygon points="75,43 72,47 78,47" fill="#6d28d9" />
                         <ellipse cx="70" cy="20" rx="4" ry="7" fill="rgba(255,255,255,0.4)" />
-                        <!-- Blue Balloon -->
-                        <ellipse cx="88" cy="20" rx="12" ry="16" fill="#74b9ff" />
-                        <polygon points="88,36 85,40 91,40" fill="#0984e3" />
+
+                        <ellipse cx="88" cy="20" rx="12" ry="16" fill="#a78bfa" />
+                        <polygon points="88,36 85,40 91,40" fill="#7c3aed" />
+                        <text x="88" y="23" font-size="6" fill="white" font-weight="bold" text-anchor="middle">Khushi</text>
                     </g>
 
-                    <!-- Stickman Head -->
-                    <circle cx="45" cy="30" r="16" stroke="#2d3436" stroke-width="4" fill="#ffffff" />
-                    <!-- Cute Eyes & Smile -->
-                    <circle cx="40" cy="28" r="2" fill="#2d3436" />
-                    <circle cx="50" cy="28" r="2" fill="#2d3436" />
-                    <!-- Cheeks -->
-                    <circle cx="37" cy="33" r="2.5" fill="#ff7675" opacity="0.6" />
-                    <circle cx="53" cy="33" r="2.5" fill="#ff7675" opacity="0.6" />
-                    <!-- Cheerful Smile -->
-                    <path d="M 40 34 Q 45 40 50 34" stroke="#2d3436" stroke-width="2.5" fill="none" stroke-linecap="round" />
+                    <circle cx="45" cy="30" r="16" stroke="#dcd6f7" stroke-width="4" fill="#2b1055" />
+                    <circle cx="40" cy="28" r="2" fill="#dcd6f7" />
+                    <circle cx="50" cy="28" r="2" fill="#dcd6f7" />
+                    <circle cx="37" cy="33" r="2.5" fill="#a393eb" opacity="0.8" />
+                    <circle cx="53" cy="33" r="2.5" fill="#a393eb" opacity="0.8" />
+                    <path d="M 40 34 Q 45 40 50 34" stroke="#dcd6f7" stroke-width="2.5" fill="none" stroke-linecap="round" />
 
-                    <!-- Party Hat -->
-                    <polygon points="45,14 33,0 57,0" fill="#fdcb6e" />
-                    <polygon points="45,14 38,0 52,0" fill="#e17055" />
-                    <circle cx="45" cy="-2" r="3.5" fill="#ff7675" />
+                    <polygon points="45,14 33,0 57,0" fill="#fbbf24" />
+                    <polygon points="45,14 38,0 52,0" fill="#a78bfa" />
+                    <circle cx="45" cy="-2" r="3.5" fill="#f43f5e" />
 
-                    <!-- Body -->
-                    <line x1="45" y1="46" x2="45" y2="90" stroke="#2d3436" stroke-width="4" stroke-linecap="round" />
+                    <line x1="45" y1="46" x2="45" y2="90" stroke="#dcd6f7" stroke-width="4" stroke-linecap="round" />
 
-                    <!-- Left Arm (Waving) -->
                     <g class="stickman-arm-left">
-                        <line x1="45" y1="55" x2="25" y2="40" stroke="#2d3436" stroke-width="4" stroke-linecap="round" />
-                        <line x1="25" y1="40" x2="12" y2="22" stroke="#2d3436" stroke-width="4" stroke-linecap="round" />
-                        <!-- Party Popper / Confetti Cone in hand -->
-                        <polygon id="partyPopper" points="12,22 2,12 18,8" fill="#e84393" class="transition-transform origin-center" />
+                        <line x1="45" y1="55" x2="25" y2="40" stroke="#dcd6f7" stroke-width="4" stroke-linecap="round" />
+                        <line x1="25" y1="40" x2="12" y2="22" stroke="#dcd6f7" stroke-width="4" stroke-linecap="round" />
+                        <polygon id="partyPopper" points="12,22 2,12 18,8" fill="#fbbf24" class="transition-transform origin-center" />
                     </g>
 
-                    <!-- Right Arm (Holding Balloon string) -->
-                    <line x1="45" y1="55" x2="60" y2="70" stroke="#2d3436" stroke-width="4" stroke-linecap="round" />
-                    <line x1="60" y1="70" x2="70" y2="85" stroke="#2d3436" stroke-width="4" stroke-linecap="round" />
+                    <line x1="45" y1="55" x2="60" y2="70" stroke="#dcd6f7" stroke-width="4" stroke-linecap="round" />
+                    <line x1="60" y1="70" x2="70" y2="85" stroke="#dcd6f7" stroke-width="4" stroke-linecap="round" />
 
-                    <!-- Legs -->
-                    <line x1="45" y1="90" x2="30" y2="125" stroke="#2d3436" stroke-width="4" stroke-linecap="round" />
-                    <line x1="45" y1="90" x2="60" y2="125" stroke="#2d3436" stroke-width="4" stroke-linecap="round" />
-                    
-                    <!-- Little Feet -->
-                    <line x1="30" y1="125" x2="22" y2="125" stroke="#2d3436" stroke-width="4" stroke-linecap="round" />
-                    <line x1="60" y1="125" x2="68" y2="125" stroke="#2d3436" stroke-width="4" stroke-linecap="round" />
+                    <line x1="45" y1="90" x2="30" y2="125" stroke="#dcd6f7" stroke-width="4" stroke-linecap="round" />
+                    <line x1="45" y1="90" x2="60" y2="125" stroke="#dcd6f7" stroke-width="4" stroke-linecap="round" />
+                    <line x1="30" y1="125" x2="22" y2="125" stroke="#dcd6f7" stroke-width="4" stroke-linecap="round" />
+                    <line x1="60" y1="125" x2="68" y2="125" stroke="#dcd6f7" stroke-width="4" stroke-linecap="round" />
                 </svg>
             </div>
 
-            <!-- ANIMATED STEP-BY-STEP CAKE -->
+            <!-- STEP-BY-STEP CAKE ASSEMBLY -->
             <div id="cakeStage" class="relative z-10 flex flex-col items-center justify-end h-56 w-60 pb-2">
-                
-                <!-- Step 5: Candle & Glowing Flame -->
                 <div id="cakeCandle" class="cake-layer relative flex flex-col items-center -mb-1 z-30 cursor-pointer" title="Click to Blow Flame!">
                     <div id="flame" class="flame w-4 h-7 bg-amber-400 rounded-full border border-orange-300 relative">
                         <div class="w-2 h-4 bg-yellow-100 rounded-full mx-auto mt-2"></div>
                     </div>
-                    <!-- Wick -->
-                    <div class="w-1 h-2 bg-gray-800"></div>
-                    <!-- Candle Body -->
-                    <div class="w-3 sm:w-4 h-10 sm:h-12 bg-gradient-to-r from-indigo-300 via-pink-200 to-indigo-300 rounded-t-sm shadow-sm border border-indigo-200"></div>
+                    <div class="w-1 h-2 bg-purple-900"></div>
+                    <div class="w-3 sm:w-4 h-10 sm:h-12 bg-gradient-to-r from-purple-300 via-indigo-200 to-purple-300 rounded-t-sm shadow-sm border border-purple-200"></div>
                 </div>
 
-                <!-- Step 4: Top Cream & Cherries -->
-                <div id="cakeTopping" class="cake-layer w-32 sm:w-36 h-6 bg-pink-100 rounded-full border-b-4 border-pink-200 relative flex justify-around items-center px-2 z-20 shadow-sm">
+                <div id="cakeTopping" class="cake-layer w-32 sm:w-36 h-6 bg-purple-100 rounded-full border-b-4 border-purple-300 relative flex justify-around items-center px-2 z-20 shadow-sm">
                     <div class="w-3 h-3 bg-red-500 rounded-full shadow-inner border border-red-400 -mt-2"></div>
                     <div class="w-3.5 h-3.5 bg-red-500 rounded-full shadow-inner border border-red-400 -mt-3"></div>
                     <div class="w-3 h-3 bg-red-500 rounded-full shadow-inner border border-red-400 -mt-2"></div>
                 </div>
 
-                <!-- Step 3: Upper Cake Layer -->
-                <div id="cakeUpper" class="cake-layer w-36 sm:w-40 h-12 bg-gradient-to-r from-pink-300 via-rose-200 to-pink-300 rounded-t-2xl relative border-t-2 border-white/60 shadow-md flex items-center justify-center overflow-hidden">
-                    <!-- Frosting Drips -->
+                <div id="cakeUpper" class="cake-layer w-36 sm:w-40 h-12 bg-gradient-to-r from-purple-400 via-purple-300 to-purple-400 rounded-t-2xl relative border-t-2 border-white/60 shadow-md flex items-center justify-center overflow-hidden">
                     <div class="absolute top-0 w-full flex justify-between px-1">
                         <div class="w-4 h-5 bg-white/80 rounded-b-full"></div>
                         <div class="w-5 h-7 bg-white/80 rounded-b-full"></div>
@@ -274,79 +273,76 @@
                     </div>
                 </div>
 
-                <!-- Step 2: Middle Cream Filling -->
                 <div id="cakeMiddle" class="cake-layer w-44 sm:w-48 h-5 bg-amber-100 rounded-full border-y-2 border-amber-200 z-10 my-[-2px] shadow-sm flex justify-around items-center px-4">
-                    <span class="w-2 h-2 bg-pink-400 rounded-full inline-block"></span>
-                    <span class="w-2 h-2 bg-yellow-400 rounded-full inline-block"></span>
-                    <span class="w-2 h-2 bg-blue-400 rounded-full inline-block"></span>
-                    <span class="w-2 h-2 bg-green-400 rounded-full inline-block"></span>
+                    <span class="w-2 h-2 bg-purple-500 rounded-full inline-block"></span>
+                    <span class="w-2 h-2 bg-amber-400 rounded-full inline-block"></span>
+                    <span class="w-2 h-2 bg-indigo-400 rounded-full inline-block"></span>
+                    <span class="w-2 h-2 bg-teal-400 rounded-full inline-block"></span>
                 </div>
 
-                <!-- Step 1: Bottom Base Cake Layer -->
-                <div id="cakeBase" class="cake-layer w-48 sm:w-56 h-16 bg-gradient-to-r from-amber-200 via-amber-100 to-amber-200 rounded-t-3xl border-t-2 border-amber-300 relative shadow-lg overflow-hidden">
-                    <div class="w-full h-3 bg-pink-400/30 absolute bottom-3"></div>
+                <div id="cakeBase" class="cake-layer w-48 sm:w-56 h-16 bg-gradient-to-r from-purple-300 via-indigo-200 to-purple-300 rounded-t-3xl border-t-2 border-purple-400 relative shadow-lg overflow-hidden">
+                    <div class="w-full h-3 bg-purple-500/30 absolute bottom-3"></div>
                 </div>
 
-                <!-- Cake Stand / Plate -->
-                <div id="cakePlate" class="w-56 sm:w-64 h-4 bg-gradient-to-r from-gray-200 via-white to-gray-200 rounded-full shadow-md border border-gray-300"></div>
+                <div id="cakePlate" class="w-56 sm:w-64 h-4 bg-gradient-to-r from-purple-200 via-white to-purple-200 rounded-full shadow-md border border-purple-300"></div>
             </div>
         </div>
 
-        <!-- Action Buttons Grid -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 my-4">
-            <button id="btnBuild" onclick="triggerBuildCake()" class="bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-600 hover:to-rose-500 text-white font-bold py-2.5 px-3 rounded-xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5 active:translate-y-0 transition text-xs sm:text-sm flex items-center justify-center gap-1.5">
-                <i class="fa-solid fa-hammer"></i> <span>1. Build Cake</span>
-            </button>
-
-            <button id="btnPopper" onclick="triggerStickmanArrival()" class="bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white font-bold py-2.5 px-3 rounded-xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5 active:translate-y-0 transition text-xs sm:text-sm flex items-center justify-center gap-1.5">
-                <i class="fa-solid fa-user-ninja"></i> <span>2. Stickman</span>
-            </button>
-
-            <button id="btnAudio" onclick="toggleBirthdayMusic()" class="bg-gradient-to-r from-amber-400 to-orange-400 hover:from-amber-500 hover:to-orange-500 text-white font-bold py-2.5 px-3 rounded-xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5 active:translate-y-0 transition text-xs sm:text-sm flex items-center justify-center gap-1.5">
-                <i id="audioIcon" class="fa-solid fa-music"></i> <span id="audioBtnText">3. Play Song</span>
-            </button>
-
-            <button id="btnBlow" onclick="extinguishCandle()" class="bg-gradient-to-r from-emerald-400 to-teal-500 hover:from-emerald-500 hover:to-teal-600 text-white font-bold py-2.5 px-3 rounded-xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5 active:translate-y-0 transition text-xs sm:text-sm flex items-center justify-center gap-1.5">
-                <i class="fa-solid fa-wind"></i> <span>4. Blow Candle</span>
-            </button>
+        <!-- Sister Greeting Card -->
+        <div class="bg-[#3b1560]/70 border border-[#a393eb]/40 rounded-2xl p-4 my-3 text-left shadow-sm">
+            <h2 class="text-[#dcd6f7] font-bold text-sm sm:text-base flex items-center gap-2 mb-1">
+                <i class="fa-solid fa-heart text-purple-300"></i>
+                <span>Ye bhi read karle 😉</span>
+            </h2>
+            <p class="text-[#dcd6f7]/90 text-xs sm:text-sm leading-relaxed">
+                To the most amazing, coffeefied sister, <strong class="text-amber-300 font-bold">Khushiii</strong>! 🌟
+                Thanks for bringing endless smiles, and Chai into your Pratik dada's lives. May your day be filled with magic, laughter, and everything you love! Vasteganahuyaaa ✌️
+            </p>
         </div>
 
-        <!-- Interactive Name Edit & Microphone Blow Assistant -->
-        <div class="bg-white/50 rounded-2xl p-3 border border-white/70 flex flex-wrap items-center justify-between gap-3 text-xs sm:text-sm">
-            <div class="flex items-center gap-2 w-full sm:w-auto flex-1 min-w-[200px]">
-                <label for="nameInput" class="font-bold text-gray-700 whitespace-nowrap">Name:</label>
-                <input type="text" id="nameInput" value="Lovie" placeholder="Enter name" class="w-full bg-white/80 border border-pink-300 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-pink-400 text-pink-600 font-bold" oninput="updateName(this.value)" />
-            </div>
+        <!-- Four Customized Action Buttons Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 my-4">
+            <!-- 1. Build Cake (Pink) -->
+            <button id="btnBuild" onclick="triggerBuildCake()" style="background-color: #ff4081;" class="hover:brightness-110 text-white font-bold py-3 px-3 rounded-xl shadow-lg transform hover:-translate-y-0.5 active:translate-y-0 transition text-xs sm:text-sm flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-cake-candles"></i> <span>Cake Banva 🎂</span>
+            </button>
 
-            <div class="flex items-center justify-end gap-2 w-full sm:w-auto">
-                <button id="btnMic" onclick="toggleMicrophoneBlow()" class="bg-white hover:bg-pink-50 text-pink-600 border border-pink-300 font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition shadow-sm text-xs">
-                    <i class="fa-solid fa-microphone" id="micIcon"></i>
-                    <span id="micStatus">Enable Blow Mic</span>
-                </button>
-                <button onclick="triggerMegaConfetti()" class="bg-pink-500 hover:bg-pink-600 text-white font-bold px-3 py-1.5 rounded-lg flex items-center gap-1 transition shadow-sm text-xs">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i> Pop Confetti
-                </button>
-            </div>
+            <!-- 2. Play Synthesizer Song (Yellow with dark text) -->
+            <button id="btnAudio" onclick="toggleBirthdayMusic()" style="background-color: #ffd54f; color: #1f0836;" class="hover:brightness-105 font-bold py-3 px-3 rounded-xl shadow-lg transform hover:-translate-y-0.5 active:translate-y-0 transition text-xs sm:text-sm flex items-center justify-center gap-1.5">
+                <i id="audioIcon" class="fa-solid fa-music"></i> <span id="audioBtnText">Play Song 🎵</span>
+            </button>
+
+            <!-- 3. Play Local MP3 Audio (Cyan/Teal) -->
+            <button id="btnLocalAudio" onclick="toggleLocalAudio()" style="background-color: #00bcd4;" class="hover:brightness-110 text-white font-bold py-3 px-3 rounded-xl shadow-lg transform hover:-translate-y-0.5 active:translate-y-0 transition text-xs sm:text-sm flex items-center justify-center gap-1.5">
+                <i id="localAudioIcon" class="fa-solid fa-circle-play"></i> <span id="localAudioBtnText">Play Alarm 🎧</span>
+            </button>
+
+            <!-- 4. Blow Candle (Reddish/Coral) -->
+            <button id="btnBlow" onclick="extinguishCandle()" style="background-color: #f44336;" class="hover:brightness-110 text-white font-bold py-3 px-3 rounded-xl shadow-lg transform hover:-translate-y-0.5 active:translate-y-0 transition text-xs sm:text-sm flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-wind"></i> <span>Blow Candle 🕯️</span>
+            </button>
         </div>
 
     </main>
 
     <script>
-        /* State Variables */
         let isCakeAssembled = false;
         let isStickmanPresent = false;
         let isMusicPlaying = false;
+        let isLocalAudioPlaying = false;
         let isCandleLit = true;
         let audioCtx = null;
         let musicInterval = null;
-        let micStream = null;
-        let audioAnalyser = null;
-        let isMicActive = false;
 
-        /* Floating Background Heart/Star Particle System */
         const bgCanvas = document.getElementById('backgroundDecor');
         const bgCtx = bgCanvas.getContext('2d');
         let bgParticles = [];
+
+        const confettiCanvas = document.getElementById('confettiCanvas');
+        const cCtx = confettiCanvas.getContext('2d');
+        let confettiList = [];
+
+        const localAudio = document.getElementById('localAudio');
 
         function resizeCanvases() {
             bgCanvas.width = window.innerWidth;
@@ -356,6 +352,7 @@
         }
         window.addEventListener('resize', resizeCanvases);
 
+        // Background Particles Floating
         class BackgroundParticle {
             constructor() {
                 this.reset();
@@ -363,12 +360,12 @@
             reset() {
                 this.x = Math.random() * bgCanvas.width;
                 this.y = bgCanvas.height + Math.random() * 50;
-                this.size = Math.random() * 12 + 8;
+                this.size = Math.random() * 12 + 6;
                 this.speedY = Math.random() * 1.5 + 0.5;
                 this.speedX = Math.sin(Math.random() * Math.PI) * 0.8;
-                this.opacity = Math.random() * 0.5 + 0.3;
-                this.color = ['#ff7675', '#fd79a8', '#ffeaa7', '#74b9ff', '#a29bfe'][Math.floor(Math.random() * 5)];
-                this.shape = Math.random() > 0.5 ? 'circle' : 'heart';
+                this.opacity = Math.random() * 0.4 + 0.2;
+                this.color = ['#a393eb', '#dcd6f7', '#592383', '#8b5cf6', '#a78bfa'][Math.floor(Math.random() * 5)];
+                this.shape = Math.random() > 0.5 ? 'circle' : 'star';
             }
             update() {
                 this.y -= this.speedY;
@@ -384,14 +381,8 @@
                     bgCtx.arc(this.x, this.y, this.size / 2, 0, Math.PI * 2);
                     bgCtx.fill();
                 } else {
-                    // Draw mini heart
                     bgCtx.beginPath();
-                    const topCurveHeight = this.size * 0.3;
-                    bgCtx.moveTo(this.x, this.y + topCurveHeight);
-                    bgCtx.bezierCurveTo(this.x, this.y, this.x - this.size / 2, this.y, this.x - this.size / 2, this.y + topCurveHeight);
-                    bgCtx.bezierCurveTo(this.x - this.size / 2, this.y + (this.size + topCurveHeight) / 2, this.x, this.y + this.size, this.x, this.y + this.size);
-                    bgCtx.bezierCurveTo(this.x, this.y + (this.size + topCurveHeight) / 2, this.x + this.size / 2, this.y + topCurveHeight, this.x + this.size / 2, this.y + topCurveHeight);
-                    bgCtx.bezierCurveTo(this.x + this.size / 2, this.y, this.x, this.y, this.x, this.y + topCurveHeight);
+                    bgCtx.arc(this.x, this.y, this.size / 3, 0, Math.PI * 2);
                     bgCtx.fill();
                 }
                 bgCtx.restore();
@@ -400,9 +391,7 @@
 
         function initBgParticles() {
             bgParticles = [];
-            for (let i = 0; i < 35; i++) {
-                bgParticles.push(new BackgroundParticle());
-            }
+            for (let i = 0; i < 40; i++) bgParticles.push(new BackgroundParticle());
         }
 
         function animateBackground() {
@@ -414,23 +403,19 @@
             requestAnimationFrame(animateBackground);
         }
 
-        /* Confetti Burst Physics Canvas System */
-        const confettiCanvas = document.getElementById('confettiCanvas');
-        const cCtx = confettiCanvas.getContext('2d');
-        let confettiList = [];
-
+        // Confetti Fireworks Particle System
         class ConfettiParticle {
             constructor(x, y) {
                 this.x = x;
                 this.y = y;
-                this.size = Math.random() * 8 + 4;
-                this.vx = (Math.random() - 0.5) * 12;
-                this.vy = (Math.random() - 1.2) * 10 - 3;
-                this.gravity = 0.2;
-                this.friction = 0.98;
+                this.size = Math.random() * 9 + 5;
+                this.vx = (Math.random() - 0.5) * 14;
+                this.vy = (Math.random() - 1.2) * 12 - 4;
+                this.gravity = 0.22;
+                this.friction = 0.97;
                 this.rotation = Math.random() * 360;
-                this.rotSpeed = (Math.random() - 0.5) * 10;
-                this.color = ['#e84393', '#00b894', '#0984e3', '#fdcb6e', '#e17055', '#6c5ce7'][Math.floor(Math.random() * 6)];
+                this.rotSpeed = (Math.random() - 0.5) * 12;
+                this.color = ['#a393eb', '#ffd54f', '#ff4081', '#f44336', '#dcd6f7', '#00e676'][Math.floor(Math.random() * 6)];
                 this.opacity = 1;
             }
             update() {
@@ -456,9 +441,7 @@
         function triggerMegaConfetti() {
             const centerX = window.innerWidth / 2;
             const centerY = window.innerHeight / 2;
-            for (let i = 0; i < 120; i++) {
-                confettiList.push(new ConfettiParticle(centerX, centerY));
-            }
+            for (let i = 0; i < 140; i++) confettiList.push(new ConfettiParticle(centerX, centerY));
         }
 
         function renderConfetti() {
@@ -466,13 +449,12 @@
             confettiList.forEach((c, index) => {
                 c.update();
                 c.draw();
-                if (c.opacity <= 0) {
-                    confettiList.splice(index, 1);
-                }
+                if (c.opacity <= 0) confettiList.splice(index, 1);
             });
             requestAnimationFrame(renderConfetti);
         }
 
+        // Step-by-Step Cake Building
         function triggerBuildCake() {
             const layers = [
                 document.getElementById('cakeBase'),
@@ -482,25 +464,22 @@
                 document.getElementById('cakeCandle')
             ];
 
-            // Reset
             layers.forEach(l => l.classList.remove('assembled'));
-            const flame = document.getElementById('flame');
-            flame.classList.remove('extinguished');
+            document.getElementById('flame').classList.remove('extinguished');
             isCandleLit = true;
 
-            // Sequential Step Animation
             layers.forEach((layer, idx) => {
                 setTimeout(() => {
                     layer.classList.add('assembled');
-                    playTone(260 + idx * 80, 0.1); // Sound effect on layer drop
-                }, idx * 400);
+                    playTone(280 + idx * 90, 0.12);
+                }, idx * 350);
             });
 
             setTimeout(() => {
                 isCakeAssembled = true;
-                showSpeech("Cake is ready! Turn on music or get Stickman!");
+                showSpeech(`Cake is ready for Khushi! don't eat this virtual 🎂`);
                 triggerMegaConfetti();
-            }, layers.length * 400 + 200);
+            }, layers.length * 350 + 200);
         }
 
         function triggerStickmanArrival() {
@@ -509,22 +488,22 @@
             wrapper.style.transform = 'translateX(0px)';
             isStickmanPresent = true;
 
-            showSpeech("Yay! Happy Birthday! Let's party! 🎉");
-            
-            // Pop party popper animation
+            showSpeech(`Happy Birthday Khushi! Let's celebrate! 🎉`);
+
             setTimeout(() => {
                 const popper = document.getElementById('partyPopper');
                 popper.style.transform = 'scale(1.5) rotate(-20deg)';
                 triggerMegaConfetti();
-                playTone(523, 0.3); // High cheer tone
-                setTimeout(() => { popper.style.transform = 'scale(1)'; }, 300);
+                playTone(523, 0.3);
+                setTimeout(() => {
+                    popper.style.transform = 'scale(1)';
+                }, 300);
             }, 1000);
         }
 
         function showSpeech(text) {
             const bubble = document.getElementById('speechBubble');
-            const speechText = document.getElementById('speechText');
-            speechText.innerText = text;
+            document.getElementById('speechText').innerText = text;
             bubble.style.opacity = '1';
             bubble.style.transform = 'translate(-50%, 0px)';
 
@@ -534,23 +513,17 @@
             }, 4000);
         }
 
-        function updateName(val) {
-            const cleanName = val.trim() || "Lovie";
-            document.getElementById('displayName').innerText = cleanName;
-        }
-
+        // Blow Candle Logic
         function extinguishCandle() {
             if (!isCandleLit) return;
 
-            const flame = document.getElementById('flame');
-            flame.classList.add('extinguished');
+            document.getElementById('flame').classList.add('extinguished');
             isCandleLit = false;
 
-            // Generate smoke particles
             const candle = document.getElementById('cakeCandle');
             const rect = candle.getBoundingClientRect();
-            
-            for (let i = 0; i < 15; i++) {
+
+            for (let i = 0; i < 18; i++) {
                 const smoke = document.createElement('div');
                 smoke.className = 'smoke';
                 smoke.style.left = `${rect.left + rect.width / 2 - 4}px`;
@@ -560,15 +533,14 @@
                 setTimeout(() => smoke.remove(), 2000);
             }
 
-            showSpeech("Wish made! May all your dreams come true! ✨");
+            showSpeech("Make a Wish, Khushi! ✨");
             triggerMegaConfetti();
             playTone(880, 0.5);
         }
 
+        // Web Audio Synthesizer
         function initAudio() {
-            if (!audioCtx) {
-                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            }
+            if (!audioCtx) audioCtx = new(window.AudioContext || window.webkitAudioContext)();
         }
 
         function playTone(freq, duration) {
@@ -578,7 +550,7 @@
                 const gain = audioCtx.createGain();
                 osc.type = 'sine';
                 osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-                gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+                gain.gain.setValueAtTime(0.18, audioCtx.currentTime);
                 gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
                 osc.connect(gain);
                 gain.connect(audioCtx.destination);
@@ -589,16 +561,89 @@
             }
         }
 
-        // Happy Birthday Synth Melody Notes
-        const melody = [
-            { note: 264, duration: 0.3 }, { note: 264, duration: 0.3 }, { note: 297, duration: 0.6 }, { note: 264, duration: 0.6 },
-            { note: 352, duration: 0.6 }, { note: 330, duration: 1.0 },
-            { note: 264, duration: 0.3 }, { note: 264, duration: 0.3 }, { note: 297, duration: 0.6 }, { note: 264, duration: 0.6 },
-            { note: 396, duration: 0.6 }, { note: 352, duration: 1.0 },
-            { note: 264, duration: 0.3 }, { note: 264, duration: 0.3 }, { note: 528, duration: 0.6 }, { note: 440, duration: 0.6 },
-            { note: 352, duration: 0.6 }, { note: 330, duration: 0.6 }, { note: 297, duration: 0.8 },
-            { note: 466, duration: 0.3 }, { note: 466, duration: 0.3 }, { note: 440, duration: 0.6 }, { note: 352, duration: 0.6 },
-            { note: 396, duration: 0.6 }, { note: 352, duration: 1.2 }
+        const melody = [{
+                note: 264,
+                duration: 0.3
+            }, {
+                note: 264,
+                duration: 0.3
+            }, {
+                note: 297,
+                duration: 0.6
+            }, {
+                note: 264,
+                duration: 0.6
+            },
+            {
+                note: 352,
+                duration: 0.6
+            }, {
+                note: 330,
+                duration: 1.0
+            },
+            {
+                note: 264,
+                duration: 0.3
+            }, {
+                note: 264,
+                duration: 0.3
+            }, {
+                note: 297,
+                duration: 0.6
+            }, {
+                note: 264,
+                duration: 0.6
+            },
+            {
+                note: 396,
+                duration: 0.6
+            }, {
+                note: 352,
+                duration: 1.0
+            },
+            {
+                note: 264,
+                duration: 0.3
+            }, {
+                note: 264,
+                duration: 0.3
+            }, {
+                note: 528,
+                duration: 0.6
+            }, {
+                note: 440,
+                duration: 0.6
+            },
+            {
+                note: 352,
+                duration: 0.6
+            }, {
+                note: 330,
+                duration: 0.6
+            }, {
+                note: 297,
+                duration: 0.8
+            },
+            {
+                note: 466,
+                duration: 0.3
+            }, {
+                note: 466,
+                duration: 0.3
+            }, {
+                note: 440,
+                duration: 0.6
+            }, {
+                note: 352,
+                duration: 0.6
+            },
+            {
+                note: 396,
+                duration: 0.6
+            }, {
+                note: 352,
+                duration: 1.2
+            }
         ];
 
         function toggleBirthdayMusic() {
@@ -610,8 +655,13 @@
                 clearInterval(musicInterval);
                 isMusicPlaying = false;
                 icon.className = "fa-solid fa-music";
-                btnText.innerText = "3. Play Song";
+                btnText.innerText = "Play Song 🎵";
             } else {
+                // Pause local audio if playing
+                if (isLocalAudioPlaying) {
+                    toggleLocalAudio();
+                }
+
                 isMusicPlaying = true;
                 icon.className = "fa-solid fa-pause";
                 btnText.innerText = "Pause Song";
@@ -625,65 +675,50 @@
             }
         }
 
-        async function toggleMicrophoneBlow() {
-            const micStatus = document.getElementById('micStatus');
-            const micIcon = document.getElementById('micIcon');
+        // Local MP3 Audio Toggle Functionality
+        function toggleLocalAudio() {
+            const localIcon = document.getElementById('localAudioIcon');
+            const localBtnText = document.getElementById('localAudioBtnText');
 
-            if (isMicActive) {
-                if (micStream) micStream.getTracks().forEach(track => track.stop());
-                isMicActive = false;
-                micStatus.innerText = "Enable Blow Mic";
-                micIcon.className = "fa-solid fa-microphone";
-                return;
-            }
+            if (isLocalAudioPlaying) {
+                localAudio.pause();
+                isLocalAudioPlaying = false;
+                localIcon.className = "fa-solid fa-circle-play";
+                localBtnText.innerText = "Play Alarm 🎧";
+            } else {
+                // Pause synth melody if playing
+                if (isMusicPlaying) {
+                    toggleBirthdayMusic();
+                }
 
-            try {
-                micStream = await navigator.mediaDevices.getUserMedia({ audio: true });
-                initAudio();
-                const source = audioCtx.createMediaStreamSource(micStream);
-                audioAnalyser = audioCtx.createAnalyser();
-                audioAnalyser.fftSize = 256;
-                source.connect(audioAnalyser);
-
-                isMicActive = true;
-                micStatus.innerText = "Listening... Blow!";
-                micIcon.className = "fa-solid fa-microphone-lines text-red-500 animate-pulse";
-
-                detectBlow();
-            } catch (err) {
-                alert("Microphone access denied or unavailable.");
+                localAudio.play().then(() => {
+                    isLocalAudioPlaying = true;
+                    localIcon.className = "fa-solid fa-circle-pause";
+                    localBtnText.innerText = "Pause Alarm";
+                }).catch(err => {
+                    console.log("Error playing audio file:", err);
+                    showSpeech("Please make sure 'alarm.mp3' is in the same folder! 🎵");
+                });
             }
         }
 
-        function detectBlow() {
-            if (!isMicActive) return;
-            const dataArray = new Uint8Array(audioAnalyser.frequencyBinCount);
-            audioAnalyser.getByteFrequencyData(dataArray);
+        // When local audio finishes playing, reset button
+        localAudio.onended = function() {
+            isLocalAudioPlaying = false;
+            document.getElementById('localAudioIcon').className = "fa-solid fa-circle-play";
+            document.getElementById('localAudioBtnText').innerText = "Play Alarm 🎧";
+        };
 
-            let sum = 0;
-            for (let i = 0; i < dataArray.length; i++) {
-                sum += dataArray[i];
-            }
-            let average = sum / dataArray.length;
-
-            if (average > 65 && isCandleLit) {
-                extinguishCandle();
-            }
-
-            requestAnimationFrame(detectBlow);
-        }
-
-        /* Auto-initialize on window load */
         window.onload = function() {
             resizeCanvases();
             initBgParticles();
             animateBackground();
             renderConfetti();
 
-            // Auto trigger assembly sequence for smooth entrance
-            setTimeout(triggerBuildCake, 600);
-            setTimeout(triggerStickmanArrival, 3000);
+            setTimeout(triggerBuildCake, 500);
+            setTimeout(triggerStickmanArrival, 2600);
         };
     </script>
 </body>
+
 </html>
